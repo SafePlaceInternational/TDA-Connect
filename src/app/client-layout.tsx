@@ -2,6 +2,7 @@
 
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import BottomNavBar from "@/components/bottom-nav-bar/bottom-nav-bar";
 
 export default function ClientLayout({
   children,
@@ -26,19 +27,17 @@ export default function ClientLayout({
     return () => window.removeEventListener("resize", checkOverflow);
   }, [pathname]);
   return (
-    <div className="flex flex-col max-h-screen h-screen">
+    <div className="flex flex-col min-h-screen">
       <main
         id="client-layout-inner1"
         className="flex flex-col overflow-scroll"
         ref={containerRef}
       >
-        <div
-          id="client-layout-inner2"
-          className="flex-grow flex justify-start"
-        >
+        <div id="client-layout-inner2" className="flex-grow flex justify-start">
           {children}
         </div>
       </main>
+      <BottomNavBar />
     </div>
   );
 }
