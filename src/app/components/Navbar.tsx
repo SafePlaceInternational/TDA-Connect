@@ -31,7 +31,7 @@ const Navbar = () => {
           />
         </div>
         <div className="w-[30%] flex justify-end items-center">
-          <div className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px]">
+          <div className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px] text-[#13020f]">
             <Image
               src={'/icons/exitIcon.svg'}
               alt="exit button"
