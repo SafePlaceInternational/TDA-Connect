@@ -8,7 +8,7 @@ const Navbar = () => {
           <div className="p-3">
             <Image
               src={'/icons/burgerMenuIcon.svg'}
-              alt="tree"
+              alt="burger menu icon"
               width={24}
               height={24}
             />
@@ -16,7 +16,7 @@ const Navbar = () => {
           <div className="p-3">
             <Image
               src={'/icons/searchIcon.svg'}
-              alt="tree"
+              alt="search icon"
               width={24}
               height={24}
             />
@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="flex justify-center w-[40%]">
           <Image
             src={'/logoColourWhite.svg'}
-            alt="tree"
+            alt="logo"
             width={68}
             height={40}
           />
@@ -34,7 +34,7 @@ const Navbar = () => {
           <div className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px]">
             <Image
               src={'/icons/exitIcon.svg'}
-              alt="logo"
+              alt="exit button"
               width={24}
               height={24}
             />
