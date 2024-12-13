@@ -2,7 +2,7 @@
 
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import BottomNavBar from "@/components/bottom-nav-bar/bottom-nav-bar";
+import BottomNavBar from "@/components/nav-bar/bottom-nav-bar";
 
 export default function ClientLayout({
   children,

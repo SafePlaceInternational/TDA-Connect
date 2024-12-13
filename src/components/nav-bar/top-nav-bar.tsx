@@ -3,11 +3,11 @@ import Image from 'next/image';
 const Navbar = () => {
   return (
     <nav>
-      <div className="flex items-center justify-between w-[100%] mb-[1em] bg-[#251a36] h-16 pl-2 pr-4 py-2">
+      <div className="flex items-center justify-between w-[100%] bg-primary-500 h-16 pl-2 pr-4 py-2">
         <div className="flex items-center w-[30%]">
           <div className="p-3">
             <Image
-              src={'/icons/burgerMenuIcon.svg'}
+              src={'/top-nav-bar/burgerMenuIcon.svg'}
               alt="burger menu icon"
               width={24}
               height={24}
@@ -15,7 +15,7 @@ const Navbar = () => {
           </div>
           <div className="p-3">
             <Image
-              src={'/icons/searchIcon.svg'}
+              src={'/top-nav-bar/searchIcon.svg'}
               alt="search icon"
               width={24}
               height={24}
@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="w-[30%] flex justify-end items-center">
           <div className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px] text-[#13020f]">
             <Image
-              src={'/icons/exitIcon.svg'}
+              src={'/top-nav-bar/exitIcon.svg'}
               alt="exit button"
               width={24}
               height={24}
