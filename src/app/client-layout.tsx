@@ -29,12 +29,12 @@ export default function ClientLayout({
     <div className="flex flex-col max-h-screen h-screen">
       <main
         id="client-layout-inner1"
-        className="flex-grow flex flex-col overflow-scroll"
+        className="flex flex-col overflow-scroll"
         ref={containerRef}
       >
         <div
           id="client-layout-inner2"
-          className="flex-grow flex justify-start px-4"
+          className="flex-grow flex justify-start"
         >
           {children}
         </div>
