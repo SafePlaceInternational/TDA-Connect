@@ -30,10 +30,10 @@ export default function ClientLayout({
     <div className="flex flex-col min-h-screen">
       <main
         id="client-layout-inner1"
-        className="flex flex-col overflow-scroll"
+        className="flex flex-col overflow-scroll pb-16 mb-4"
         ref={containerRef}
       >
-        <div id="client-layout-inner2" className="flex-grow flex justify-start">
+        <div id="client-layout-inner2" className="flex flex-grow justify-start">
           {children}
         </div>
       </main>
