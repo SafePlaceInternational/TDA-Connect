@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Profile() {
   return (
-    <div className="flex flex-row w-full h-12 ">
+    <div className="flex flex-row w-full px-3">
       <div className="basis-0.5/4">
         <Image
           src="/view-post/profile-photo.svg"
