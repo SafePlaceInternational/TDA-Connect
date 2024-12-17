@@ -1,6 +1,7 @@
 import ViewPost from "@/components/view-post/view-post";
 import TryQuickExit from "../try-quick-exit/page";
 import AddPost from "@/components/add-post/add-post";
+import ViewGroup from "../view-group/view-group"; 
 import SensitiveTopic from "../view-sensitive-topics/page";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <AddPost/>
       <TryQuickExit/>
       <ViewPost />
+      <ViewGroup/>
       <SensitiveTopic/>
     </div>
   );
