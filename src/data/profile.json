@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "userId": 1,
+      "fullName": { "firstName": "John", "lastName": "Doe" },
+      "pronouns": { "pronouns": "he/him" },
+      "tdaGradYear": { "year": 2020 },
+      "currentLocation": { "city": "New York", "country": "USA" },
+      "bio": { "text": "A passionate software engineer and tech enthusiast." },
+      "profilePic": { "url": "https://example.com/profiles/john_doe.jpg" },
+      "homeCountry": { "country": "USA" },
+      "nickname": { "nickname": "Johnny" },
+      "namePronunciation": { "audioUrl": "https://example.com/pronunciations/john_doe.mp3" },
+      "website": { "url": "https://johndoe.dev" },
+      "tdaGradYearBannerVisible": { "visible": true }
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "fullName": { "firstName": "Jane", "lastName": "Smith" },
+      "pronouns": { "pronouns": "she/her" },
+      "tdaGradYear": { "year": 2019 },
+      "currentLocation": { "city": "London", "country": "UK" },
+      "bio": { "text": "A creative designer and front-end developer." },
+      "profilePic": { "url": "https://example.com/profiles/jane_smith.jpg" },
+      "homeCountry": { "country": "UK" },
+      "nickname": { "nickname": "Janie" },
+      "namePronunciation": null,
+      "website": { "url": "https://janesmithdesign.com" },
+      "tdaGradYearBannerVisible": { "visible": false }
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "fullName": { "firstName": "Alex", "lastName": "Johnson" },
+      "pronouns": { "pronouns": "they/them" },
+      "tdaGradYear": null,
+      "currentLocation": { "city": "Toronto", "country": "Canada" },
+      "bio": { "text": "I enjoy coding, music, and open-source projects." },
+      "profilePic": { "url": "https://example.com/profiles/alex_johnson.jpg" },
+      "homeCountry": { "country": "Canada" },
+      "nickname": null,
+      "namePronunciation": { "text": "Alex J-OHN-suhn" },
+      "website": null,
+      "tdaGradYearBannerVisible": { "visible": true }
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "fullName": { "firstName": "Maria", "lastName": "Gonzalez" },
+      "pronouns": null,
+      "tdaGradYear": { "year": 2021 },
+      "currentLocation": { "city": "Madrid", "country": "Spain" },
+      "bio": { "text": "Aspiring data scientist and AI researcher." },
+      "profilePic": null,
+      "homeCountry": { "country": "Spain" },
+      "nickname": { "nickname": "Mari" },
+      "namePronunciation": { "text": "Mah-ree-ah Gon-sah-les" },
+      "website": null,
+      "tdaGradYearBannerVisible": { "visible": false }
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "fullName": { "firstName": "David", "lastName": "Brown" },
+      "pronouns": { "pronouns": "he/him" },
+      "tdaGradYear": null,
+      "currentLocation": null,
+      "bio": { "text": "Full-stack developer exploring cloud technologies." },
+      "profilePic": "/view-post/profile-photo.svg",
+      "homeCountry": { "country": "Australia" },
+      "nickname": null,
+      "namePronunciation": null,
+      "website": { "url": "https://davidbrown.tech" },
+      "tdaGradYearBannerVisible": { "visible": true }
+    }
+  ]
+  
