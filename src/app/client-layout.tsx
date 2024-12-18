@@ -3,6 +3,7 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import BottomNavBar from "@/components/nav-bar/bottom-nav-bar";
+import TopNavbar from "@/components/nav-bar/top-nav-bar";
 
 export default function ClientLayout({
   children,
@@ -28,6 +29,7 @@ export default function ClientLayout({
   }, [pathname]);
   return (
     <div className="flex flex-col min-h-screen">
+      <TopNavbar />
       <main
         id="client-layout-inner1"
         className="flex flex-col overflow-scroll pb-16 mb-4"
