@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 const ResponsiveCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,13 +38,9 @@ const ResponsiveCarousel: React.FC = () => {
     );
   };
 
-  const finish = () => {
-    alert("Finished!");
-  };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center px-4 md:px-8">
-      {/* Carousel Container */}
+    <div className="w-full h-screen flex mt-52 px-4 md:px-8">
       <div className="relative w-full max-w-[640px] overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -59,10 +56,12 @@ const ResponsiveCarousel: React.FC = () => {
               <Card className="w-full md:w-3/4 lg:w-2/3 h-auto flex flex-col shadow-md p-6">
                 {/* Slide Content */}
                 <CardHeader className="h-12 px-0">
-                  <div className="w-full flex justify-between items-center px-3">
+                  <div className="w-full flex justify-between px-3">
                     <CardTitle>
                       <p>{slide.title}</p>
                     </CardTitle>
+                    <CardTitle>
+                      <Link href='/'>
                     <button className="items-center">
                       <Image
                         src="/Close.svg"
@@ -71,6 +70,8 @@ const ResponsiveCarousel: React.FC = () => {
                         height={36}
                       />
                     </button>
+                    </Link>
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <hr className="border-accent-purple border-[1px]" />
@@ -97,12 +98,13 @@ const ResponsiveCarousel: React.FC = () => {
                     </button>
                   )}
                   {currentIndex === slides.length - 1 && (
+                    <Link href='/'>
                     <button
                       className="w-16 h-10 bg-tertiary-500 rounded-full"
-                      onClick={finish}
                     >
                       Finish
                     </button>
+                    </Link>
                   )}
                 </div>
 
