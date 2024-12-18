@@ -1,37 +1,33 @@
 import Image from 'next/image';
+import LeftSideMenu from '../side-menu/left-side-menu';
 
 const Navbar = () => {
   return (
     <nav>
       <div className="flex items-center justify-between w-[100%] bg-primary-500 h-16 pl-2 pr-4 py-2">
         <div className="flex items-center w-[30%]">
-          <div className="p-3">
-            <Image
-              src={'/top-nav-bar/burgerMenuIcon.svg'}
-              alt="burger menu icon"
-              width={24}
-              height={24}
-            />
-          </div>
-          <div className="p-3">
+          <button className="p-3">
+            <LeftSideMenu />
+          </button>
+          <button className="p-3">
             <Image
               src={'/top-nav-bar/searchIcon.svg'}
               alt="search icon"
               width={24}
               height={24}
             />
-          </div>
+          </button>
         </div>
-        <div className="flex justify-center w-[40%]">
+        <button className="flex justify-center w-[40%]">
           <Image
             src={'/logoColourWhite.svg'}
             alt="logo"
             width={68}
             height={40}
           />
-        </div>
+        </button>
         <div className="w-[30%] flex justify-end items-center">
-          <div className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px] text-[#13020f]">
+          <button className="flex justify-center items-center gap-2.5 px-4 py-2 bg-[#f4c521] rounded-[100px] text-[#13020f]">
             <Image
               src={'/top-nav-bar/exitIcon.svg'}
               alt="exit button"
@@ -39,7 +35,7 @@ const Navbar = () => {
               height={24}
             />
             <p>Exit</p>
-          </div>
+          </button>
         </div>
       </div>
     </nav>
