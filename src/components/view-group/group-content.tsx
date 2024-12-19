@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function GroupContent(){
     return(
-        <div className="mt-4">
+        <div className="mt-4 px-3">
             <p className="text-base font-[400] pb-4">
                 Hello TDA Connect Community! Come and join the new public group that I’ve created.
             </p>

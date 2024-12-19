@@ -3,6 +3,7 @@ import TryQuickExit from "../try-quick-exit/page";
 import AddPost from "@/components/add-post/add-post";
 import ViewGroup from "../view-group/view-group"; 
 import SensitiveTopic from "../view-sensitive-topics/page";
+import Footer from "../footer/page";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ViewPost />
       <ViewGroup/>
       <SensitiveTopic/>
+      <Footer/>
     </div>
   );
 }
