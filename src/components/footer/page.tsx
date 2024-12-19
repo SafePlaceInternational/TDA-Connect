@@ -1,42 +1,44 @@
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Footer() {
   return (
-    <div  className="flex items-center justify-between w-[100%] bg-primary-500 px-6 mt-4 text-white">
-        <div  className="flex-row w-full justify-center item-center px-6 my-3">
-        <div>
-            <div className="flex justify-center item-center">
-                <p className="text-lg">TDA Connect</p>
-            </div>
-            <div className="flex justify-center item-center">
-                <p className="text-xd">A Safe Place for Community, Resources, and Growth</p>
-            </div>
-        </div>
-        <div className='flex justify-center item-center w-full'>
-            <div className="flex justify-center item-center w-[60%]">
-                <div className="p-3 w-[35%]">
-                    <Link href="#" className='underline'>About us</Link>
-                </div>
-                <div className="p-3 w-[30%]">
-                    <Link href="#" className='underline'>FAQs</Link>
-                </div>
-                <div className="p-3 w-[35%]">
-                    <Link href="#" className='underline'>Contact us</Link>
-                </div>
-            </div>
-        </div>
-          
-          <div className="w-full">
-            <hr className="border-accent-purple border-[1px]"/>
-          </div>
-          <div>
-            <div className="flex justify-center item-center mt-4">
-                <p className="text-md">2024 by Safe Place International</p>
-            </div>
-            <div className="flex justify-center item-center">
-                <p className="text-md">EIN 82-3250577</p>
-            </div>
-        </div>
+    <div className="flex flex-col w-full bg-primary-500 p-6 text-white pb-16">
+      <div className="flex justify-center item-center">
+        <p className="font-bold text-xl">TDA Connect</p>
       </div>
+
+      <p className="font-normal text-sm mt-2 self-center">
+        A Safe Place for Community, Resources, and Growth
+      </p>
+
+      <div className="flex justify-between item-center px-2">
+        <Link href="#" className="underline p-3 text-lg font-medium">
+          About us
+        </Link>
+
+        <Link href="#" className="underline p-3 text-lg font-medium">
+          FAQs
+        </Link>
+
+        <Link href="#" className="underline p-3 text-lg font-medium">
+          Contact us
+        </Link>
+      </div>
+
+      <hr className="border-accent-purple border-[1px]" />
+
+      <div className="flex flex-row justify-center item-center mt-4">
+        <Image
+          src="/footer/Copyright.svg"
+          alt="copyright"
+          width={16}
+          height={16}
+        />
+        <p className="text-md font-normal">2024 by Safe Place International</p>
+      </div>
+
+      <p className="text-md self-center font-normal">EIN 82-3250577</p>
     </div>
   );
 }
