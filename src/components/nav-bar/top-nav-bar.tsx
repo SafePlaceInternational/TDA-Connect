@@ -3,7 +3,7 @@ import LeftSideMenu from '../side-menu/left-side-menu';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='max-w-lg'>
       <div className="flex items-center justify-between w-[100%] bg-primary-500 h-16 pl-2 pr-4 py-2">
         <div className="flex items-center w-[30%]">
           <div className="p-3 cursor-pointer">

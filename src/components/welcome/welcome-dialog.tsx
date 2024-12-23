@@ -20,7 +20,11 @@ const WelcomeDialog = () => {
   const closeDialog = (): void => setIsOpen(false);
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen}  onOpenChange={(isDialogOpen) => {
+      if (!isDialogOpen) {
+        setIsOpen(true);
+      }
+    }}>
       <DialogContent className="w-[90%] [&>button]:hidden rounded-xl">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-accent-purple">

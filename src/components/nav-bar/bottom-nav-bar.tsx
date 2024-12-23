@@ -13,7 +13,7 @@ export default function BottomNavBar() {
   ];
 
   return (
-    <nav className="fixed max-w-[640px] w-full bottom-0 bg-primary-500 h-20 border-none m-0">
+    <nav className="fixed max-w-lg w-full bottom-0 bg-primary-500 h-20 border-none m-0">
       <div className="flex justify-around px-2 pb-4 pt-3 gap-2">
         {navItems.map((item) => (
           <Link
