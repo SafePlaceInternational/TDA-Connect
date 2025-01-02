@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { DM_Sans } from "next/font/google";
 import ClientLayout from "./client-layout";
-import Navbar from "../components/nav-bar/top-nav-bar";
 
 const dmSans = DM_Sans({
   weight: ["100", "300", "400", "500", "700", "900"],
