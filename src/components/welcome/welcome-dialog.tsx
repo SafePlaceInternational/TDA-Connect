@@ -6,25 +6,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import Link from "next/link";
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
+import Onboarding from "../onboarding/page";
 
 
 const WelcomeDialog = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(true);
+  const [isTutorialDialogOpen, setIsTutorialDialogOpen] = useState(false);
 
-  useEffect(() => {
-    setIsOpen(true); 
-  }, []); 
+
+  const openTutorialDialog = () => {
+    setIsOpen(false);
+    setIsTutorialDialogOpen(true);
+  }
 
   const closeDialog = (): void => setIsOpen(false);
+  const closeTutorialDialog = () => setIsTutorialDialogOpen(false)
 
   return (
-    <Dialog open={isOpen}  onOpenChange={(isDialogOpen) => {
-      if (!isDialogOpen) {
-        setIsOpen(true);
-      }
-    }}>
+    <>
+    <Dialog open={isOpen}  onOpenChange={setIsOpen}>
       <DialogContent className="w-[90%] [&>button]:hidden rounded-xl">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-accent-purple">
@@ -32,7 +33,7 @@ const WelcomeDialog = () => {
           </DialogTitle>
         </DialogHeader>
         <div>
-          <p className="text-center text-xl mb-8">
+          <p className="text-center text-md mb-8">
             Let's check out some key features.
           </p>
           
@@ -43,16 +44,19 @@ const WelcomeDialog = () => {
             >
               Skip
             </button>
-            <Link 
-              href="/onboarding" 
+            <button 
+              onClick={openTutorialDialog}
               className="px-4 py-2 bg-tertiary-500 rounded-full font-bold"
             >
               Start tutorial
-            </Link>
+            </button>
           </div>
         </div>
       </DialogContent>
     </Dialog>
+    
+    <Onboarding isOpen={isTutorialDialogOpen} onClose={closeTutorialDialog}/>
+    </>
   );
 };
 
