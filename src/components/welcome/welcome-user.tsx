@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogContent,
@@ -7,21 +9,18 @@ import {
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import Link from "next/link";
+import { useDialogContext } from "@/lib/dialog-provider";
 
-interface Props {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const WelcomeUser: React.FC<Props> = ({ isOpen, onClose }) => {
+const WelcomeUser = () => {
+  const { currentDialog, closeDialog } = useDialogContext();
   return (
     <>
-      <Dialog open={isOpen} onOpenChange={onClose}>
+      <Dialog open={currentDialog === 3}>
         <DialogContent className="w-[90%] [&>button]:hidden rounded-xl p-6 gap-0">
           <DialogHeader className="flex flex-row justify-between h-12">
             <DialogTitle className="font-bold">Welcome Ayana!</DialogTitle>
             <div className="self-center">
-              <button onClick={onClose}>
+              <button onClick={closeDialog}>
                 <Image
                   src="Close.svg"
                   alt="close button"
@@ -38,11 +37,14 @@ const WelcomeUser: React.FC<Props> = ({ isOpen, onClose }) => {
           <div className="flex justify-end mt-4">
             <button
               className="w-16 h-10 border border-black mx-2 rounded-full"
-              onClick={onClose}
+              onClick={closeDialog}
             >
               Skip
             </button>
-            <Link href='/profile' className="w-28 h-10 bg-tertiary-500 rounded-full text-center py-2">
+            <Link
+              href="/profile"
+              className="w-28 h-10 bg-tertiary-500 rounded-full text-center py-2"
+            >
               Edit Profile
             </Link>
           </div>
