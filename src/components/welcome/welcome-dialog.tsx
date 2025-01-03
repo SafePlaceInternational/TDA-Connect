@@ -7,12 +7,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useState} from 'react';
-import Onboarding from "../onboarding/page";
+import Onboarding from "./user-onboarding";
+import WelcomeUser from "./welcome-user";
 
 
 const WelcomeDialog = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isTutorialDialogOpen, setIsTutorialDialogOpen] = useState(false);
+  const [isUserDialogOpen, setIsUserDialogOpen] = useState(false)
 
 
   const openTutorialDialog = () => {
@@ -20,8 +22,15 @@ const WelcomeDialog = () => {
     setIsTutorialDialogOpen(true);
   }
 
+  const openUserDialog = () => {
+    setIsOpen(false);
+    setIsTutorialDialogOpen(false);
+    setIsUserDialogOpen(true);
+  }
+
   const closeDialog = (): void => setIsOpen(false);
   const closeTutorialDialog = () => setIsTutorialDialogOpen(false)
+  const closeUserDialog = () => setIsUserDialogOpen(false)
 
   return (
     <>
@@ -55,7 +64,8 @@ const WelcomeDialog = () => {
       </DialogContent>
     </Dialog>
     
-    <Onboarding isOpen={isTutorialDialogOpen} onClose={closeTutorialDialog}/>
+    <Onboarding isOpen={isTutorialDialogOpen} onClose={closeTutorialDialog} openNext={openUserDialog}/>
+    <WelcomeUser isOpen={isUserDialogOpen} onClose={closeUserDialog}/>
     </>
   );
 };
