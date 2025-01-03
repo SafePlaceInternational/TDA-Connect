@@ -13,9 +13,10 @@ import Image from "next/image";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  openNext: () => void;
 }
 
-const Onboarding: React.FC<Props> = ({ isOpen, onClose }) => {
+const Onboarding: React.FC<Props> = ({ isOpen, onClose, openNext }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
@@ -59,9 +60,9 @@ const Onboarding: React.FC<Props> = ({ isOpen, onClose }) => {
               className="w-[90%] [&>button]:hidden rounded-xl p-6 gap-0"
             >
               {/* Header */}
-              <DialogHeader className="flex flex-row justify-between">
+              <DialogHeader className="flex flex-row justify-between h-12">
                 <DialogTitle className="font-bold">{slide.title}</DialogTitle>
-                <div className="justify-center items-center">
+                <div className="self-center">
                 <button onClick={onClose}><Image src='Close.svg' alt="close button" width={36} height={36}/></button>
                 </div>
               </DialogHeader>
@@ -69,7 +70,7 @@ const Onboarding: React.FC<Props> = ({ isOpen, onClose }) => {
 
               {/* Content */}
               <DialogDescription className="mt-4 text-black">
-                <p>{slide.content}</p>
+                {slide.content}
               </DialogDescription>
 
               {/* Navigation Buttons */}
@@ -94,7 +95,7 @@ const Onboarding: React.FC<Props> = ({ isOpen, onClose }) => {
                   <Link href="/">
                     <button
                       className="w-16 h-10 bg-tertiary-500 rounded-full"
-                      onClick={onClose}
+                      onClick={openNext}
                     >
                       Finish
                     </button>
