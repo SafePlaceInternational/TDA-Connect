@@ -1,7 +1,6 @@
 "use client";
 
-import React, { RefObject, useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import React from "react";
 import BottomNavBar from "@/components/nav-bar/bottom-nav-bar";
 import TopNavbar from "@/components/nav-bar/top-nav-bar";
 import { DialogProvider } from "@/lib/dialog-provider";
@@ -11,35 +10,18 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const containerRef: RefObject<HTMLDivElement> = useRef(null);
-  const [hasOverflow, setHasOverflow] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (containerRef.current) {
-        const hasVerticalOverflow =
-          containerRef.current.scrollHeight > containerRef.current.clientHeight;
-        setHasOverflow(hasVerticalOverflow);
-      }
-    };
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, [pathname]);
+ 
   return (
     <div className="flex flex-col min-h-screen">
       <DialogProvider>
         <TopNavbar />
         <main
           id="client-layout-inner1"
-          className="flex flex-col overflow-scroll pb-16 mb-4"
-          ref={containerRef}
+          className="relative flex flex-col pb-16 mb-4"
         >
           <div
             id="client-layout-inner2"
-            className="flex flex-grow justify-start"
+            className="relative flex flex-grow justify-start overflow-y-auto"
           >
             {children}
           </div>

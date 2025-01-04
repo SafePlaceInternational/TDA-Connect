@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.className} my-0 max-w-lg justify-center items-center mx-auto shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px] antialiased`}
+        className={`${dmSans.className} my-0 max-w-lg justify-center items-center mx-auto shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px] antialiased z-10`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>
