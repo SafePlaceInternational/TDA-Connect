@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import React, { RefObject, useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
-import BottomNavBar from "@/components/nav-bar/bottom-nav-bar";
-import TopNavbar from "@/components/nav-bar/top-nav-bar";
-import { DialogProvider } from "@/lib/dialog-provider";
+import React, { RefObject, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import BottomNavBar from '@/components/nav-bar/bottom-nav-bar';
+import TopNavbar from '@/components/nav-bar/top-nav-bar';
+import TopNavbarBeforeLogin from '@/components/nav-bar/top-nav-bar-before-login';
+import { DialogProvider } from '@/lib/dialog-provider';
 
 export default function ClientLayout({
   children,
@@ -13,6 +14,7 @@ export default function ClientLayout({
 }) {
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [hasOverflow, setHasOverflow] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,14 +26,14 @@ export default function ClientLayout({
       }
     };
     checkOverflow();
-    window.addEventListener("resize", checkOverflow);
+    window.addEventListener('resize', checkOverflow);
 
-    return () => window.removeEventListener("resize", checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
   }, [pathname]);
   return (
     <div className="flex flex-col min-h-screen">
       <DialogProvider>
-        <TopNavbar />
+        {loggedIn ? <TopNavbar /> : <TopNavbarBeforeLogin />}
         <main
           id="client-layout-inner1"
           className="flex flex-col overflow-scroll pb-16 mb-4"
