@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import { useDialogContext } from "@/lib/dialog-provider";
-import { useEffect } from "react";
+import { useEffect} from "react";
 
 const Onboarding = () => {
+  
 
   const {
     currentDialog,
@@ -20,28 +21,24 @@ const Onboarding = () => {
     goToPreviousScreen,
     openDialog,
     closeDialog,
-    highlightComponent
+    highlightComponent,
   } = useDialogContext();
 
   const slides = [
     {
-      id:"button1",
       title: "Quick Exit",
       content:
         "Use this privacy feature to quickly exit the site. Customize in Settings.",
     },
     {
-      id:"button2",
       title: "Resources Hub",
       content: "Find emergency resources, TDA coursework, job board, and more.",
     },
     {
-      id:"button3",
       title: "Groups",
       content: "Join groups to connect with others who have similar interests.",
     },
     {
-      id:"button4",
       title: "Sensitive Topics",
       content:
         "Set up Sensitive Topics in Settings to filter your feed. Posts containing sensitive topics will be hidden from view.",
@@ -49,8 +46,16 @@ const Onboarding = () => {
   ];
 
   useEffect(() => {
-    if (currentDialog === 2) {
-      highlightComponent(slides[currentScreen - 1]?.id || null);
+    if (currentDialog === 2 && currentScreen === 1) {
+      highlightComponent('exitButton');
+    }else if(currentDialog === 2 && currentScreen === 2){
+      highlightComponent('resourceButton');
+    }else if(currentDialog === 2 && currentScreen === 3){
+      highlightComponent('groups');
+    }else if(currentDialog === 2 && currentScreen === 4){
+      highlightComponent('sensitiveTopic');
+    }else{
+      highlightComponent(null)
     }
   }, [currentDialog, currentScreen, highlightComponent]);
 
@@ -62,7 +67,7 @@ const Onboarding = () => {
           currentScreen === index + 1 && (
             <DialogContent
               key={index}
-              className="w-[90%] [&>button]:hidden rounded-xl p-6 gap-0"
+              className="w-[90%] [&>button]:hidden rounded-xl p-6 gap-0 z-[1000]"
             >
               {/* Header */}
               <DialogHeader className="flex flex-row justify-between h-12">

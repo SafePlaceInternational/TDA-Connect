@@ -7,11 +7,13 @@ import TopNavbar from '@/components/nav-bar/top-nav-bar';
 import TopNavbarBeforeLogin from '@/components/nav-bar/top-nav-bar-before-login';
 import { DialogProvider } from '@/lib/dialog-provider';
 
+
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [hasOverflow, setHasOverflow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -30,18 +32,25 @@ export default function ClientLayout({
 
     return () => window.removeEventListener('resize', checkOverflow);
   }, [pathname]);
+
+ 
+  useEffect(() => {
+    // Scroll to the top of the page when the app starts
+    window.scrollTo(0, 0);
+  }, []);
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <DialogProvider>
         {loggedIn ? <TopNavbar /> : <TopNavbarBeforeLogin />}
         <main
           id="client-layout-inner1"
-          className="flex flex-col overflow-scroll pb-16 mb-4"
-          ref={containerRef}
+          className="relative flex flex-col pb-16 mb-4"
         >
           <div
             id="client-layout-inner2"
-            className="flex flex-grow justify-start"
+            className="relative flex flex-grow justify-start overflow-y-auto"
           >
             {children}
           </div>
