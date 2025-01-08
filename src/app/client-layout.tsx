@@ -6,6 +6,7 @@ import BottomNavBar from '@/components/nav-bar/bottom-nav-bar';
 import TopNavbar from '@/components/nav-bar/top-nav-bar';
 import TopNavbarBeforeLogin from '@/components/nav-bar/top-nav-bar-before-login';
 import { DialogProvider } from '@/lib/dialog-provider';
+import { SessionProvider } from 'next-auth/react';
 
 
 export default function ClientLayout({
@@ -42,6 +43,7 @@ export default function ClientLayout({
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SessionProvider>
       <DialogProvider>
         {loggedIn ? <TopNavbar /> : <TopNavbarBeforeLogin />}
         <main
@@ -57,6 +59,7 @@ export default function ClientLayout({
         </main>
         <BottomNavBar />
       </DialogProvider>
+      </SessionProvider>
     </div>
   );
 }
