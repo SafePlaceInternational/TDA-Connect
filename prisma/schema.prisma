@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  passwordHash String
+  isActive     Boolean   @default(true)
+  Profile      Profile?
+  Posts        Post[]
+  Comment      Comment[]
+}
+
+model Profile {
+  id                       Int   @id @default(autoincrement())
+  user                     User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                   Int   @unique
+  fullName                 Json
+  pronouns                 Json?
+  tdaGradYear              Json?
+  currentLocation          Json?
+  bio                      Json?
+  profilePic               Json?
+  homeCountry              Json?
+  nickname                 Json?
+  namePronunciation        Json?
+  website                  Json?
+  tdaGradYearBannerVisible Json
+}
+
+model Post {
+  id                Int       @id @default(autoincrement())
+  userId            Int
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content           String?
+  image             String?
+  likes             Int       @default(0)
+  dislikes          Int       @default(0)
+  isDraft           Boolean   @default(false)
+  hasSensitiveTopic Boolean   @default(false)
+  visibleTo         String    @default("community")
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  Comment           Comment[]
+}
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId     Int
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  content    String
+  likes      Int      @default(0)
+  dislikes   Int      @default(0)
+  likedBy    Int[]
+  dislikedBy Int[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
