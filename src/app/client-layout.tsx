@@ -1,23 +1,20 @@
-'use client';
+"use client";
 
-import React, { RefObject, useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import BottomNavBar from '@/components/nav-bar/bottom-nav-bar';
-import TopNavbar from '@/components/nav-bar/top-nav-bar';
-import TopNavbarBeforeLogin from '@/components/nav-bar/top-nav-bar-before-login';
-import { DialogProvider } from '@/lib/dialog-provider';
-import { SessionProvider } from 'next-auth/react';
-
+import React, { RefObject, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { DialogProvider } from "@/lib/dialog-provider";
+import { SessionProvider } from "next-auth/react";
+import ConditionalTopNav from "@/components/nav-bar/conditional-top-nav";
+import ConditionalBottomNav from "@/components/nav-bar/conditional-bottom-nav";
+import Footer from "@/components/footer/page";
 
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [hasOverflow, setHasOverflow] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,36 +26,35 @@ export default function ClientLayout({
       }
     };
     checkOverflow();
-    window.addEventListener('resize', checkOverflow);
+    window.addEventListener("resize", checkOverflow);
 
-    return () => window.removeEventListener('resize', checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
   }, [pathname]);
 
- 
   useEffect(() => {
     // Scroll to the top of the page when the app starts
     window.scrollTo(0, 0);
   }, []);
 
-
   return (
     <div className="flex flex-col min-h-screen">
       <SessionProvider>
-      <DialogProvider>
-        {loggedIn ? <TopNavbar /> : <TopNavbarBeforeLogin />}
-        <main
-          id="client-layout-inner1"
-          className="relative flex flex-col pb-16 mb-4"
-        >
-          <div
-            id="client-layout-inner2"
-            className="relative flex flex-grow justify-start overflow-y-auto"
+        <DialogProvider>
+          <ConditionalTopNav />
+          <main
+            id="client-layout-inner1"
+            className="relative flex flex-col pb-16 mb-4"
           >
-            {children}
-          </div>
-        </main>
-        <BottomNavBar />
-      </DialogProvider>
+            <div
+              id="client-layout-inner2"
+              className="relative flex flex-grow justify-start overflow-y-auto"
+            >
+              {children}
+            </div>
+            <Footer/>
+          </main>
+          <ConditionalBottomNav />
+        </DialogProvider>
       </SessionProvider>
     </div>
   );

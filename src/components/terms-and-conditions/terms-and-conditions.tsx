@@ -4,10 +4,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import axios from "axios";
+import { useSession } from "next-auth/react";
+
 
 export default function TermsAndConditions() {
+  const {data:user} = useSession()  
+  const router = useRouter();
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const router = useRouter()
   const handleCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
@@ -146,7 +149,7 @@ export default function TermsAndConditions() {
           </div>
         </div>
       </ScrollArea>
-      <div className="flex gap-4">
+      {user && <div className="flex gap-4">
         <input
           type="checkbox"
           id="terms"
@@ -157,19 +160,19 @@ export default function TermsAndConditions() {
           By creating an account, you agree to the Terms & Conditions of Safe
           Place International and TDA Connect.
         </label>
-      </div>
+      </div>}
       <div className="flex justify-end mt-4">
-        <button className="border-[1px] border-black rounded-full px-4 py-2">
+        <button onClick={()=>router.push('/sign-in')} className="border-[1px] border-black rounded-full px-4 py-2">
           Close
         </button>
-        <button
+       {user && <button
           className={`${
             isChecked ? "bg-tertiary-500" : "bg-neutral-200"
           } rounded-full ml-2 px-4 py-2`}
           onClick={handleButton}
         >
           Next
-        </button>
+        </button>}
       </div>
     </div>
   );

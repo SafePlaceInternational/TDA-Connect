@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col w-full bg-primary-500 p-6 text-white pb-16">
+    <div className="flex flex-col w-full bg-primary-500 p-6 text-white">
       <div className="flex justify-center item-center">
         <p className="font-bold text-xl">TDA Connect</p>
       </div>

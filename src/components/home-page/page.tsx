@@ -10,7 +10,9 @@ import WelcomeUser from "../welcome/welcome-user";
 
 
 
-export default function Home() {
+
+export default async function Home() {
+ 
 
   return (
     <div className="w-full mt-4">
@@ -20,7 +22,6 @@ export default function Home() {
       <ViewPost />
       <ViewGroup/>
       <SensitiveTopic/>
-      <Footer/>
       <WelcomeDialog />
       <Onboarding/>
       <WelcomeUser/>

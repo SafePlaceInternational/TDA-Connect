@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/footer/page";
 import SigninHeader from "@/components/sign-in/signin-header";
 import BackgroundImage from "@/components/sign-in/signin-background-image";
 import GoogleSignInButton from "@/components/sign-in/google-signin-button";
@@ -13,7 +12,7 @@ export default function SignIn() {
   const email = session?.user?.email;
 
   return (
-    <div className="flex flex-col min-h-screen bg-primary-500">
+    <div className="flex flex-col bg-primary-500">
       {/* Main content */}
       <div className="flex-grow flex flex-col items-center">
         <SigninHeader />
@@ -29,8 +28,6 @@ export default function SignIn() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
