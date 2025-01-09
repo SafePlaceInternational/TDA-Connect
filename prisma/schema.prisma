@@ -14,13 +14,14 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
-  email        String    @unique
-  passwordHash String
-  isActive     Boolean   @default(true)
-  Profile      Profile?
-  Posts        Post[]
-  Comment      Comment[]
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
+  passwordHash   String
+  hasAgreedTerms Boolean   @default(false)
+  isActive       Boolean   @default(true)
+  Profile        Profile?
+  Posts          Post[]
+  Comment        Comment[]
 }
 
 model Profile {
