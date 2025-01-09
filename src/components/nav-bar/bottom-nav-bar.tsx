@@ -21,7 +21,7 @@ export default function BottomNavBar() {
   return (
     <nav className=" max-w-lg">
       <div
-        className={`flex justify-around px-2 pb-4 pt-3 gap-2 w-full bottom-0 bg-primary-500 h-20 border-none m-0 ${
+        className={`fixed flex justify-around px-2 pb-4 pt-3 gap-2 w-full bottom-0 bg-primary-500 h-20 border-none m-0 ${
           highlightedComponent === "resourceButton" && "z-[60]"
         }`}
       >

@@ -43,7 +43,7 @@ export default function ClientLayout({
           <ConditionalTopNav />
           <main
             id="client-layout-inner1"
-            className="relative flex flex-col pb-16 mb-4"
+            className="relative flex flex-col"
           >
             <div
               id="client-layout-inner2"
@@ -51,8 +51,9 @@ export default function ClientLayout({
             >
               {children}
             </div>
-            <Footer/>
+            
           </main>
+          <Footer/>
           <ConditionalBottomNav />
         </DialogProvider>
       </SessionProvider>
