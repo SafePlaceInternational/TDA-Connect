@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { signOut } from 'next-auth/react';
 import {
   Sheet,
   SheetContent,
@@ -68,6 +69,7 @@ const SideMenu = () => {
           <Button
             type="submit"
             className="text-[#251a36] font-medium leading-normal tracking-tight p-0 bg-inherit w-fit"
+            onClick={() => signOut({ callbackUrl: '/auth/sign-in' })}
           >
             Log Out
           </Button>

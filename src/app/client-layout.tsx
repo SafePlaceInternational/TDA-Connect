@@ -10,10 +10,10 @@ import Footer from "@/components/footer/page";
 
 export default function ClientLayout({
   children,
-  session
+
 }: {
   children: React.ReactNode,
-  session: any;
+ 
 }) {
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [hasOverflow, setHasOverflow] = useState(false);
@@ -40,7 +40,7 @@ export default function ClientLayout({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SessionProvider session={session}>
+      <SessionProvider>
         <DialogProvider>
           <ConditionalTopNav />
           <main

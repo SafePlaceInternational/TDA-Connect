@@ -62,6 +62,7 @@ export const authOption: NextAuthOptions = {
       return `${baseUrl}/terms-and-conditions`;
     },
   },
+  debug:true
 };
 
 const handler = NextAuth(authOption);
