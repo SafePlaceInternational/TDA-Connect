@@ -15,7 +15,7 @@ export async function PUT(req: Request) {
     }
 
     const userEmail = session.user?.email;
-    console.log("User email:", userEmail);
+  
 
     if (!userEmail) {
       return NextResponse.json(

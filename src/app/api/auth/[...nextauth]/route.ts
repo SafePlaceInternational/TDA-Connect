@@ -59,7 +59,8 @@ export const authOption: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      return `${baseUrl}/terms-and-conditions`;
+      //return `${baseUrl}/terms-and-conditions`;
+      return baseUrl;
     },
   },
   debug:true

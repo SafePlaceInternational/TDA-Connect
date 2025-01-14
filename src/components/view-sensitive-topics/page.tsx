@@ -11,7 +11,6 @@ export default function SensitiveTopic(){
     const sensitiveDivRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        console.log(highlightedComponent)
         if (sensitiveDivRef.current && highlightedComponent === "sensitiveTopic") {
             sensitiveDivRef.current.scrollIntoView({
             behavior: "smooth",
