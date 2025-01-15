@@ -1,7 +1,7 @@
-# Project Name
+# TDA Connect
 
 ## Overview
-A modern web application built with **Next.js**, **Tailwind CSS**, **Prisma**, **Supabase**, and **Google OAuth** for streamlined authentication and efficient database management.
+A global virtual community for LGBTQIA+ refugees and asylum seekers to safely connect.A modern web application built with **Next.js**, **Tailwind CSS**, **Prisma**, **Supabase**, and **Google OAuth** for streamlined authentication and efficient database management.
 
 ## Features
 - **Next.js**: Server-side rendering, static site generation, and optimized performance.
@@ -20,8 +20,7 @@ Ensure you have the following installed:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/SafePlaceInternational/TDA-Connect.git
    ```
 
 2. Install dependencies:
@@ -34,8 +33,9 @@ Ensure you have the following installed:
 3. Set up environment variables:
    Create a `.env.local` file in the root of your project and add the following:
    ```env
-   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   DATABASE_URL=your-supabase-url
+   NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="some string"
    GOOGLE_CLIENT_ID=your-google-client-id
    GOOGLE_CLIENT_SECRET=your-google-client-secret
    ```
@@ -64,28 +64,6 @@ Ensure you have the following installed:
 - `build`: Builds the application for production.
 - `start`: Starts the production server.
 - `prisma`: Prisma CLI commands.
-
-## Folder Structure
-```
-.
-├── components        # Reusable UI components
-├── pages             # Next.js pages
-├── prisma            # Prisma schema and migrations
-├── public            # Static assets
-├── styles            # Global and component-specific styles
-├── utils             # Utility functions
-└── ...
-```
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes and push the branch.
-4. Submit a pull request.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - [Next.js](https://nextjs.org/)
